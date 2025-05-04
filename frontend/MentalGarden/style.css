@@ -437,3 +437,46 @@ textarea:focus {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+/* Kapsayıcı grid */
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 10px;
+}  
+/* Kartın genel görünümü */
+.mood-card {
+    background-color: #f4fef4;
+    border: 2px solid #d0e8d0;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  /* Hover efekti */
+.mood-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  }
+  /* Tarih stili */
+.mood-date {
+    font-weight: bold;
+    color: #4e944f;
+    margin-bottom: 10px;
+  }
+  /* Görsel boyutu */
+.mood-image {
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+  }
+  /* Açıklama metni */
+.mood-desc {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+  }
+  
