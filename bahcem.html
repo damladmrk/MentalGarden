@@ -133,22 +133,6 @@
   </section>
 </main>
 
-<script>
-  document.getElementById("moodForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const mood = document.getElementById("moodSelect").value;
-    const flower = document.createElement("img");
-    flower.src = `assets/flower${mood}.svg`;
-    flower.className = "flower";
-
-    document.getElementById("garden-view").appendChild(flower);
-
-    // Form temizle
-    document.getElementById("dailySentence").value = "";
-    document.getElementById("moodSelect").selectedIndex = 0;
-  });
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
