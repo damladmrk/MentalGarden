@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
 :root {
     --dark-rose: #745751;
@@ -104,8 +105,8 @@ main {
 }
 
 .garden-img {
-    width: 100%;
-    max-width: 600px;
+    width: 500px;
+    height: auto;
 }
 
 /* ========== Butonlar ========== */
@@ -216,6 +217,61 @@ main {
 .social-icons a img:hover {
     opacity: 1;
 }
+/* Ana sayfa genel düzeni */
+.homepage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem;
+    background-color: var(--soft-grey);
+}
+
+/* Soldaki hoşgeldin ve quote */
+.left-section {
+    flex: 1;
+}
+
+.welcome-text {
+    color: var(--light-black);
+    transform: translateY(-20px);
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.quote {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--dark-rose);
+    margin-top: 1rem;
+}
+
+/* Sağdaki görsel */
+.right-section {
+    flex-shrink: 0;
+}
+
+.background-img {
+    width: 512px;
+    transform: translateY(-20px);
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobil uyumlu olsun diye (isteğe bağlı) */
+@media (max-width: 768px) {
+    .homepage {
+        flex-direction: column;
+    }
+
+    .background-img {
+        width: 80%;
+        margin-top: 2rem;
+    }
+}
+
 
 /* Günlük Sayfası */
 .journal-page {
@@ -316,7 +372,7 @@ textarea:focus {
     }
 
     .garden-img {
-        width: 60%;
+        width: 50%;
     }
 }
 
