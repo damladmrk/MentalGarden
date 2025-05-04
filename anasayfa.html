@@ -22,13 +22,19 @@
     </header>
     <main class="homepage">
         <section class="left-section">
-            <h1 class="welcome-text">Hoşgeldin!</h1>
+            <h1 class="welcome-text" id="welcome-text"> Hoşgeldin!</h1>
             <p class="quote">Umut insanların kalbini asla terk etmez.</p>
         </section>
         <section class="right-section">
             <img src="assets\garden-background.svg" alt="Background Image" class="background-img">
         </section>
     </main>
-
+    <script>
+        const username = localStorage.getItem("username");
+        const title = document.getElementById("welcome-text");
+        if (username) {
+            title.textContent = `${username}’nın Bahçesi`;
+        }
+    </script>
 </body>
 </html>
