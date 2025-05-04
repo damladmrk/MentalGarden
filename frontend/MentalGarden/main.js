@@ -9,20 +9,33 @@ document.getElementById("moodForm").addEventListener("submit", async function (e
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      username: "sevval",
+      username: "deneme", // bunu ileride kullanıcıya göre dinamik yaparsın
       sentence: sentence,
       mood: mood,
-      date: new Date().toISOString().slice(0, 10)
-    })
+      date: new Date().toISOString().slice(0, 10),
+    }),
   });
 
-  // 🌳 Bahçeye görsel ekle
-  const tree = document.createElement("img");
-  tree.src = `assets/tree${mood}.svg`;
-  tree.className = "flower";
-  document.getElementById("garden-view").appendChild(tree);
+  // 🌼 Çiçeği görsel olarak ekle
+  const flower = document.createElement("img");
+  flower.src = `assets/flower${mood}.svg`;
+  flower.className = "flower";
+  document.getElementById("garden-view").appendChild(flower);
 
-  // 🧹 Formu temizle
+  // Formu temizle
   document.getElementById("dailySentence").value = "";
   document.getElementById("moodSelect").selectedIndex = 0;
+});
+
+// 🕰️ Sayfa yüklendiğinde geçmiş mood'ları getir
+window.addEventListener("DOMContentLoaded", async () => {
+  const response = await fetch("http://localhost:8000/mood-history/deneme");
+  const moodHistory = await response.json();
+
+  moodHistory.forEach((entry) => {
+    const flower = document.createElement("img");
+    flower.src = `assets/flower${entry.mood}.svg`;
+    flower.className = "flower";
+    document.getElementById("garden-view").appendChild(flower);
+  });
 });
