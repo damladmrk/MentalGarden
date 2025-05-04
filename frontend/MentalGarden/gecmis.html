@@ -4,34 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geçmiş Ruh Halleri</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f4f8;
-      padding: 40px;
-      color: #333;
-    }
-
-    h1 {
-      color: #2b7a78;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1rem;
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-      max-width: 500px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 <body>
+  <header>
+    <a href="anasayfa.html">
+        <img src="assets/logo.svg" alt="assets/MentalGarden Logo" class="logo">
+    </a>
+    <nav class="navbar">
+      <a href="günlügüm.html">Günlük</a>
+      <a href="bahcem.html">Bahçem</a>
+      <a href="#">Bahçemiz</a>
+      <a href="gecmis.html">Geçmiş</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+    </nav>
+    <a href="#" class="profile-btn">
+      <img src="assets/profile-icon.svg" alt="Profil">
+    </a>
+  </header>
 
-  <h1>Geçmiş Ruh Halleri</h1>
-  <p>Bu sayfada geçmişe ait ruh halleri listelenecek 🌱</p>
+  <main class="container">
+    <h1>Geçmiş Ruh Halleri</h1>
+    <p>Son 7 gün boyunca kendini nasıl hissettiğini buradan görebilirsin 🌱</p>
 
+    <div class="mood-grid">
+      
+<!-- GÜNLÜK VERİ ÖRNEKLERİ -->
+<div class="mood-grid">
+
+  <div class="mood-card">
+    <p class="mood-date">4 Mayıs 2025</p>
+    <img src="assets/tree4.svg" alt="Mutlu" class="mood-image">
+    <p class="mood-desc">Bugün çok mutlu hissediyordum!</p>
+  </div>
+
+  <div class="mood-card">
+    <p class="mood-date">3 Mayıs 2025</p>
+    <img src="assets/tree3.svg" alt="İyi" class="mood-image">
+    <p class="mood-desc">Kendimi oldukça iyi hissediyordum.</p>
+  </div>
+
+  <div class="mood-card">
+    <p class="mood-date">2 Mayıs 2025</p>
+    <img src="assets/tree2.svg" alt="Nötr" class="mood-image">
+    <p class="mood-desc">Ne iyi ne kötü, nötr bir gündü.</p>
+  </div>
+
+  <div class="mood-card">
+    <p class="mood-date">1 Mayıs 2025</p>
+    <img src="assets/tree1.svg" alt="Üzgün" class="mood-image">
+    <p class="mood-desc">Biraz üzgündüm bugün.</p>
+  </div>
+
+  <div class="mood-card">
+    <p class="mood-date">30 Nisan 2025</p>
+    <img src="assets/tree0.svg" alt="Stresli" class="mood-image">
+    <p class="mood-desc">Gergin ve stresli bir gün geçirdim.</p>
+  </div>
+
+  <div class="mood-card">
+    <p class="mood-date">29 Nisan 2025</p>
+    <img src="assets/tree2.svg" alt="Nötr" class="mood-image">
+    <p class="mood-desc">Her şey dengedeydi, neşeli ama sakin bir gündü.</p>
+  </div>
+
+  <div class="mood-card">
+    <p class="mood-date">28 Nisan 2025</p>
+    <img src="assets/tree3.svg" alt="İyi" class="mood-image">
+    <p class="mood-desc">Motivasyonum yerindeydi, güzel bir gündü.</p>
+  </div>
+
+</div>
+    </div>
+  </main>
 </body>
 </html>
