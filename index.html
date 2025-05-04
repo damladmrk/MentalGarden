@@ -45,7 +45,7 @@
         <form>
 
             <label>Adınız:</label>
-            <input type="ad" placeholder="Adınızı girin" required>
+            <input type="ad" id="username" placeholder="Adınızı girin" required>
             
             <label>Telefon Numarası:</label>
             <input type="tel" placeholder="05xx xxx xx xx" required>
@@ -117,7 +117,7 @@
         event.preventDefault();
         const username = document.getElementById("username").value;
         localStorage.setItem("username", username);
-        window.location.href = "/anasayfa.html";
+        window.location.href = "anasayfa.html";
     }
     </script>
     
