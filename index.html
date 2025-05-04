@@ -110,5 +110,14 @@
             e.target.style.display = 'none';
         }
     });
+
+    // Kullanıcı adını al ve yönlendir
+    function handleLogin(event) {
+
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        localStorage.setItem("username", username);
+        window.location.href = "/anasayfa.html";
+    }
     </script>
     
