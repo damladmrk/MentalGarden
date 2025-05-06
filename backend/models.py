@@ -16,3 +16,8 @@ class Mood(SQLModel, table=True):
 class AutoMoodRequest(BaseModel):
     username: str
     sentence: str
+class JournalEntry(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    username: str
+    entry: str
+    date: str = Field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d"))

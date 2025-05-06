@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bahçemiz - MentalGarden</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f6f9f3;
+      margin: 0;
+    }
+
+    header {
+      background-color: #d4ccb0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #3e3e3e;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #5b4b3a;
+      margin-bottom: 1rem;
+    }
+
+    .shared-garden {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .flower-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      width: 220px;
+      text-align: center;
+    }
+
+    .flower-card img {
+      width: 80px;
+      margin: 1rem 0;
+    }
+
+    .username {
+      font-weight: bold;
+      color: #34774e;
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="anasayfa.html"><img src="assets/logo.svg" class="logo" alt="Logo"></a>
+  <nav class="navbar">
+    <a href="günlügüm.html">Günlük</a>
+    <a href="bahcem.html">Bahçem</a>
+    <a href="bahcemiz.html">Bahçemiz</a>
+    <a href="gecmis.html">Geçmiş</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Bahçemiz</h1>
+  <p>Topluluğun ruh halleri burada çiçek açıyor 🌼</p>
+
+  <div class="shared-garden" id="sharedGarden">
+    <!-- Dinamik içerik eklenecek -->
+  </div>
+</main>
+
+<script>
+    const moodDescriptions = [
+      "Yorgun hissediyordu.",
+      "Nötr hissediyordu.",
+      "İyi hissediyordu.",
+      "Harika hissediyordu.",
+      "İlham doluydu!"
+    ];
+  
+    async function loadAllMoods() {
+      const res = await fetch("http://localhost:8000/all-moods");
+      const data = await res.json();
+  
+      const container = document.getElementById("sharedGarden");
+      container.innerHTML = "";
+  
+      data.reverse().forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "flower-card";
+  
+        div.innerHTML = `
+          <p class="username">${entry.username}</p>
+          <img src="assets/tree${entry.mood}.svg" alt="Mood" />
+          <p class="desc">${moodDescriptions[entry.mood]}</p>
+          <small>${new Date(entry.date).toLocaleDateString('tr-TR')}</small>
+        `;
+  
+        container.appendChild(div);
+      });
+    }
+  
+    window.addEventListener("DOMContentLoaded", loadAllMoods);
+  </script>
+  
+
+</body>
+</html>

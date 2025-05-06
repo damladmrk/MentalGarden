@@ -4,6 +4,7 @@ from backend.database import create_db_and_tables, get_session
 from backend.models import Mood, AutoMoodRequest
 from typing import List
 from backend.services import analyze_sentiment
+from backend.models import JournalEntry
 
 app = FastAPI()
 
@@ -35,3 +36,24 @@ def auto_create_mood(request: AutoMoodRequest, session: Session = Depends(get_se
     session.commit()
     session.refresh(mood)
     return mood
+
+@app.get("/mood-history/{username}", response_model=List[Mood])
+def get_mood_history(username: str, session: Session = Depends(get_session)):
+    statement = select(Mood).where(Mood.username == username)
+    return session.exec(statement).all()
+
+@app.get("/all-moods", response_model=List[Mood])
+def get_all_moods(session: Session = Depends(get_session)):
+    return session.exec(select(Mood)).all()
+
+@app.post("/journal", response_model=JournalEntry)
+def save_journal(entry: JournalEntry, session: Session = Depends(get_session)):
+    session.add(entry)
+    session.commit()
+    session.refresh(entry)
+    return entry
+
+@app.get("/journal/{username}", response_model=List[JournalEntry])
+def get_journal(username: str, session: Session = Depends(get_session)):
+    statement = select(JournalEntry).where(JournalEntry.username == username)
+    return session.exec(statement).all()
