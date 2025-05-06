@@ -438,45 +438,76 @@ textarea:focus {
     cursor: pointer;
 }
 
-/* Kapsayıcı grid */
+
+/* Container'ı genişlet ve ortala */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Daha geniş bir maksimum genişlik */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.card-header{
+    margin: 15px;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+   
+}
+/* Mood-grid için grid düzenini güçlendir */
 .mood-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Minimum genişlik 200px */
+    gap: 15px;
     margin-top: 30px;
     padding: 0 10px;
-}  
-/* Kartın genel görünümü */
+    width: 100%; /* Grid'in tüm genişliği kullanmasını sağla */
+}
+
+/* Mood-card stilleri */
 .mood-card {
     background-color: #f4fef4;
     border: 2px solid #d0e8d0;
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
-  }
-  /* Hover efekti */
+}
+
 .mood-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  }
-  /* Tarih stili */
+}
+
 .mood-date {
     font-weight: bold;
     color: #4e944f;
     margin-bottom: 10px;
-  }
-  /* Görsel boyutu */
+}
+
 .mood-image {
     width: 80px;
     height: 80px;
     margin: 10px 0;
-  }
-  /* Açıklama metni */
+}
+
 .mood-desc {
     font-size: 14px;
     color: #333;
     line-height: 1.4;
-  }
-  
+}
+
+/* Responsive ayarlar */
+@media (max-width: 767px) {
+    .mood-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Küçük ekranlarda daha küçük kartlar */
+    }
+}
+
+@media (min-width: 768px) {
+    .mood-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Büyük ekranlarda yan yana diz */
+    }
+}
